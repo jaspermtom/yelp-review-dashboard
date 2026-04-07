@@ -88,13 +88,15 @@ function useAIInsights(data,data2,label1,label2){
   const remaining=MAX_DAILY-usage;
   const generate=()=>{
     if(usage>=MAX_DAILY||phase!=='idle')return;
+    try{if(window.posthog)window.posthog.capture('ai_insights_clicked');}catch{}
     cancelRef.current=false;
     setPhase('pending');
     timerRef.current=setTimeout(async()=>{
       if(cancelRef.current)return;
       setPhase('loading');
       const ctx=`Location: ${label1}. Stars: ${SD.map(s=>`${s}★=${data.star_pcts[s]}%`).join(", ")}. Elite%: ${SD.map(s=>`${s}★=${data.star_counts[s].elite_pct.toFixed(1)}%`).join(", ")}. Total: ${fmt(data.meta.total_reviews)}.${data2?` Compare: ${label2}. Stars: ${SD.map(s=>`${s}★=${data2.star_pcts[s]}%`).join(", ")}. Elite%: ${SD.map(s=>`${s}★=${data2.star_counts[s].elite_pct.toFixed(1)}%`).join(", ")}.`:""}`;
-      try{const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:600,messages:[{role:"user",content:`Analyze this Yelp data:\n${ctx}\nProvide exactly 3 interesting, specific, data-driven insights. Each 1-2 sentences. Format as JSON array: [{"title":"4-6 words","body":"insight text"}]. Return ONLY JSON.`}]})});const d=await r.json();if(cancelRef.current){setPhase('idle');return;}const text=d.content?.map(c=>c.text||"").join("")||"";const parsed=JSON.parse(text.replace(/```json|```/g,"").trim());setInsights(parsed);const nc=usage+1;setUsage(nc);save(nc)}catch{if(!cancelRef.current)setInsights([{title:"Generation failed",body:"Could not connect to the AI service. Please try again."}])}
+      try{const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:600,messages:[{role:"user",content:`Analyze this Yelp data:\n${ctx}\nProvide exactly 3 interesting, specific, data-driven insights. Each 1-2 sentences. Format as JSON array: [{"title":"4-6 words","body":"insight text"}]. Return ONLY JSON.`}]})});const d=await r.json();if(cancelRef.current){setPhase('idle');return;}const text=d.content?.map(c=>c.text||"").join("")||"";const parsed=JSON.parse(text.replace(/```json|```/g,"").trim());setInsights(parsed);const nc=usage+1;setUsage(nc);save(nc);try{if(window.posthog)window.posthog.capture('ai_insights_generated',{comparison_mode:!!data2});}catch{}
+}catch{if(!cancelRef.current)setInsights([{title:"Generation failed",body:"Could not connect to the AI service. Please try again."}])}
       if(!cancelRef.current)setPhase('idle');
     },3000);
   };
@@ -245,9 +247,10 @@ function useTour(setHs,setHt){
   const[active,setActive]=useState(false);
   const[exiting,setExiting]=useState(false);
 
-  const start=()=>{
+  const start=(trigger='button')=>{
     window.scrollTo({top:0,behavior:'smooth'});
     setTimeout(()=>{setTourStep(0);setActive(true);setExiting(false);},300);
+    try{if(window.posthog)window.posthog.capture('tour_started',{trigger});}catch{}
   };
   const goTo=(i)=>{setTourStep(i);};
   const next=()=>{
@@ -257,6 +260,7 @@ function useTour(setHs,setHt){
   const end=()=>{
     setExiting(true);
     setTimeout(()=>{
+      try{if(window.posthog)window.posthog.capture('tour_completed',{step_reached:tourStep});}catch{}
       setActive(false);setTourStep(-1);setExiting(false);
       setHs(null);setHt(null);
       try{localStorage.setItem('yd_visited','1');}catch{}
@@ -291,10 +295,10 @@ export default function App(){
     const ab=initAB();
     const newUser=isNewUser();
     if(ab==='A'&&newUser){
-      setTimeout(()=>tour.start(),800);
+      setTimeout(()=>tour.start('auto'),800);
     }
     // Track A/B group (GA4 custom event if available)
-    try{if(window.gtag)window.gtag('event','ab_group',{group:ab,auto_tour:ab==='A'&&newUser});}catch{}
+    try{if(window.posthog)window.posthog.capture('ab_group_assigned',{group:ab,auto_tour:ab==='A'&&newUser});}catch{}
   },[loaded]);
 
   const data=NAT;const isC=!!sel2;const d2=isC?NASH:null;
