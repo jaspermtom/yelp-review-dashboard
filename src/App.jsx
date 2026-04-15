@@ -390,7 +390,7 @@ if(!natData||!cityIndex)return(<div style={{display:'flex',alignItems:'center',j
               </Btn>
               {showTip&&<div className="yd-ai-tip" style={{position:"absolute",top:"100%",left:0,marginTop:5,background:"#fff",border:"1px solid #ddd",borderRadius:10,padding:"14px 18px",width:300,maxWidth:"calc(100vw - 48px)",zIndex:9999,boxShadow:"0 8px 24px rgba(0,0,0,0.14)",fontFamily:FF,fontSize:12,color:"#555",lineHeight:1.6}}>
                 <p style={{margin:"0 0 8px"}}><strong style={{color:"#333"}}>Who</strong><br/>This data is sent to the Anthropic API, which uses Claude to provide analysis.</p>
-                <p style={{margin:0}}><strong style={{color:"#333"}}>What</strong><br/>Claude generates 3 insights in text form and displays them below. To keep my costs manageable, the daily limit is {MAX_DAILY}.</p>
+                <p style={{margin:0}}><strong style={{color:"#333"}}>What</strong><br/>Claude will generate 3 insights in text form and display them below. To keep my costs manageable, the daily limit is 100 API calls. There are {ai.remaining} API calls available today.</p>
               </div>}
             </div>
             <Btn onClick={()=>tour.start()} style={{padding:"4px 14px",fontSize:13,fontFamily:FF,fontWeight:500,border:"2px solid #888",borderRadius:8,background:"#fff",color:"#444",display:"flex",alignItems:"center",gap:6,flexShrink:0}}>
@@ -422,7 +422,7 @@ if(!natData||!cityIndex)return(<div style={{display:'flex',alignItems:'center',j
             </Btn>
             {showTip&&<div className="yd-ai-tip" style={{position:"absolute",top:"100%",left:0,marginTop:5,background:"#fff",border:"1px solid #ddd",borderRadius:10,padding:"14px 18px",width:280,maxWidth:"calc(100vw - 48px)",zIndex:9999,boxShadow:"0 12px 32px rgba(0,0,0,0.18)",fontFamily:FF,fontSize:12,color:"#555",lineHeight:1.6}}>
               <p style={{margin:"0 0 8px"}}><strong style={{color:"#333"}}>Who</strong><br/>This data is sent to the Anthropic API, which uses Claude to provide analysis.</p>
-              <p style={{margin:0}}><strong style={{color:"#333"}}>What</strong><br/>Claude generates 3 insights in text form and displays them below. To keep my costs manageable, the daily limit is {MAX_DAILY}.</p>
+              <p style={{margin:0}}><strong style={{color:"#333"}}>What</strong><br/>Claude will generate 3 insights in text form and display them below. To keep my costs manageable, the daily limit is 100 API calls. There are {ai.remaining} API calls available today.</p>
             </div>}
           </div>
           <Btn onClick={()=>tour.start()} style={{padding:"4px 14px",fontSize:13,fontFamily:FF,fontWeight:500,border:"2px solid #888",borderRadius:8,background:"#fff",color:"#444",display:"flex",alignItems:"center",gap:6,flexShrink:0}}>
