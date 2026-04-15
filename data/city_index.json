@@ -1,0 +1,1615 @@
+{
+  "national": {
+    "label": "United States",
+    "review_count": 4947662,
+    "elite_review_count": 1349549,
+    "business_count": 60736
+  },
+  "states": {
+    "AB": [
+      {
+        "key": "edmonton_ab",
+        "city": "Edmonton",
+        "state": "AB",
+        "business_count": 2781,
+        "review_count": 73976,
+        "elite_review_count": 29663
+      },
+      {
+        "key": "sherwood_park_ab",
+        "city": "Sherwood Park",
+        "state": "AB",
+        "business_count": 170,
+        "review_count": 2935,
+        "elite_review_count": 950
+      },
+      {
+        "key": "st_albert_ab",
+        "city": "St Albert",
+        "state": "AB",
+        "business_count": 59,
+        "review_count": 1020,
+        "elite_review_count": 381
+      }
+    ],
+    "AZ": [
+      {
+        "key": "oro_valley_az",
+        "city": "Oro Valley",
+        "state": "AZ",
+        "business_count": 107,
+        "review_count": 9666,
+        "elite_review_count": 2093
+      },
+      {
+        "key": "tucson_az",
+        "city": "Tucson",
+        "state": "AZ",
+        "business_count": 3224,
+        "review_count": 275217,
+        "elite_review_count": 77941
+      }
+    ],
+    "CA": [
+      {
+        "key": "carpinteria_ca",
+        "city": "Carpinteria",
+        "state": "CA",
+        "business_count": 113,
+        "review_count": 13010,
+        "elite_review_count": 1987
+      },
+      {
+        "key": "goleta_ca",
+        "city": "Goleta",
+        "state": "CA",
+        "business_count": 295,
+        "review_count": 30168,
+        "elite_review_count": 6116
+      },
+      {
+        "key": "isla_vista_ca",
+        "city": "Isla Vista",
+        "state": "CA",
+        "business_count": 68,
+        "review_count": 6905,
+        "elite_review_count": 1747
+      },
+      {
+        "key": "santa_barbara_ca",
+        "city": "Santa Barbara",
+        "state": "CA",
+        "business_count": 1131,
+        "review_count": 187968,
+        "elite_review_count": 38570
+      }
+    ],
+    "DE": [
+      {
+        "key": "new_castle_de",
+        "city": "New Castle",
+        "state": "DE",
+        "business_count": 117,
+        "review_count": 3489,
+        "elite_review_count": 534
+      },
+      {
+        "key": "newark_de",
+        "city": "Newark",
+        "state": "DE",
+        "business_count": 179,
+        "review_count": 10420,
+        "elite_review_count": 1757
+      },
+      {
+        "key": "wilmington_de",
+        "city": "Wilmington",
+        "state": "DE",
+        "business_count": 756,
+        "review_count": 34201,
+        "elite_review_count": 6087
+      }
+    ],
+    "FL": [
+      {
+        "key": "apollo_beach_fl",
+        "city": "Apollo Beach",
+        "state": "FL",
+        "business_count": 54,
+        "review_count": 3104,
+        "elite_review_count": 550
+      },
+      {
+        "key": "brandon_fl",
+        "city": "Brandon",
+        "state": "FL",
+        "business_count": 400,
+        "review_count": 32361,
+        "elite_review_count": 6775
+      },
+      {
+        "key": "clearwater_fl",
+        "city": "Clearwater",
+        "state": "FL",
+        "business_count": 877,
+        "review_count": 61381,
+        "elite_review_count": 13118
+      },
+      {
+        "key": "clearwater_beach_fl",
+        "city": "Clearwater Beach",
+        "state": "FL",
+        "business_count": 87,
+        "review_count": 18041,
+        "elite_review_count": 3476
+      },
+      {
+        "key": "dunedin_fl",
+        "city": "Dunedin",
+        "state": "FL",
+        "business_count": 251,
+        "review_count": 19893,
+        "elite_review_count": 4808
+      },
+      {
+        "key": "gulfport_fl",
+        "city": "Gulfport",
+        "state": "FL",
+        "business_count": 68,
+        "review_count": 4072,
+        "elite_review_count": 749
+      },
+      {
+        "key": "holiday_fl",
+        "city": "Holiday",
+        "state": "FL",
+        "business_count": 53,
+        "review_count": 1715,
+        "elite_review_count": 301
+      },
+      {
+        "key": "hudson_fl",
+        "city": "Hudson",
+        "state": "FL",
+        "business_count": 116,
+        "review_count": 3744,
+        "elite_review_count": 492
+      },
+      {
+        "key": "largo_fl",
+        "city": "Largo",
+        "state": "FL",
+        "business_count": 411,
+        "review_count": 19055,
+        "elite_review_count": 3648
+      },
+      {
+        "key": "lutz_fl",
+        "city": "Lutz",
+        "state": "FL",
+        "business_count": 236,
+        "review_count": 14620,
+        "elite_review_count": 3103
+      },
+      {
+        "key": "madeira_beach_fl",
+        "city": "Madeira Beach",
+        "state": "FL",
+        "business_count": 94,
+        "review_count": 11304,
+        "elite_review_count": 1850
+      },
+      {
+        "key": "new_port_richey_fl",
+        "city": "New Port Richey",
+        "state": "FL",
+        "business_count": 296,
+        "review_count": 12045,
+        "elite_review_count": 1936
+      },
+      {
+        "key": "odessa_fl",
+        "city": "Odessa",
+        "state": "FL",
+        "business_count": 58,
+        "review_count": 1915,
+        "elite_review_count": 480
+      },
+      {
+        "key": "oldsmar_fl",
+        "city": "Oldsmar",
+        "state": "FL",
+        "business_count": 109,
+        "review_count": 9048,
+        "elite_review_count": 2323
+      },
+      {
+        "key": "palm_harbor_fl",
+        "city": "Palm Harbor",
+        "state": "FL",
+        "business_count": 270,
+        "review_count": 15939,
+        "elite_review_count": 3371
+      },
+      {
+        "key": "pinellas_park_fl",
+        "city": "Pinellas Park",
+        "state": "FL",
+        "business_count": 207,
+        "review_count": 12888,
+        "elite_review_count": 3160
+      },
+      {
+        "key": "plant_city_fl",
+        "city": "Plant City",
+        "state": "FL",
+        "business_count": 140,
+        "review_count": 5538,
+        "elite_review_count": 1124
+      },
+      {
+        "key": "port_richey_fl",
+        "city": "Port Richey",
+        "state": "FL",
+        "business_count": 119,
+        "review_count": 5415,
+        "elite_review_count": 706
+      },
+      {
+        "key": "riverview_fl",
+        "city": "Riverview",
+        "state": "FL",
+        "business_count": 260,
+        "review_count": 17090,
+        "elite_review_count": 3423
+      },
+      {
+        "key": "ruskin_fl",
+        "city": "Ruskin",
+        "state": "FL",
+        "business_count": 60,
+        "review_count": 3716,
+        "elite_review_count": 587
+      },
+      {
+        "key": "safety_harbor_fl",
+        "city": "Safety Harbor",
+        "state": "FL",
+        "business_count": 68,
+        "review_count": 5880,
+        "elite_review_count": 1438
+      },
+      {
+        "key": "saint_petersburg_fl",
+        "city": "Saint Petersburg",
+        "state": "FL",
+        "business_count": 661,
+        "review_count": 59778,
+        "elite_review_count": 14652
+      },
+      {
+        "key": "seffner_fl",
+        "city": "Seffner",
+        "state": "FL",
+        "business_count": 54,
+        "review_count": 2126,
+        "elite_review_count": 383
+      },
+      {
+        "key": "seminole_fl",
+        "city": "Seminole",
+        "state": "FL",
+        "business_count": 151,
+        "review_count": 7125,
+        "elite_review_count": 1362
+      },
+      {
+        "key": "spring_hill_fl",
+        "city": "Spring Hill",
+        "state": "FL",
+        "business_count": 193,
+        "review_count": 5512,
+        "elite_review_count": 761
+      },
+      {
+        "key": "st_pete_beach_fl",
+        "city": "St Pete Beach",
+        "state": "FL",
+        "business_count": 52,
+        "review_count": 9210,
+        "elite_review_count": 1371
+      },
+      {
+        "key": "st_petersburg_fl",
+        "city": "St Petersburg",
+        "state": "FL",
+        "business_count": 152,
+        "review_count": 19317,
+        "elite_review_count": 4650
+      },
+      {
+        "key": "st._pete_beach_fl",
+        "city": "St. Pete Beach",
+        "state": "FL",
+        "business_count": 90,
+        "review_count": 15732,
+        "elite_review_count": 2762
+      },
+      {
+        "key": "st._petersburg_fl",
+        "city": "St. Petersburg",
+        "state": "FL",
+        "business_count": 534,
+        "review_count": 40833,
+        "elite_review_count": 10536
+      },
+      {
+        "key": "tampa_fl",
+        "city": "Tampa",
+        "state": "FL",
+        "business_count": 3854,
+        "review_count": 335121,
+        "elite_review_count": 97514
+      },
+      {
+        "key": "tampa_bay_fl",
+        "city": "Tampa Bay",
+        "state": "FL",
+        "business_count": 52,
+        "review_count": 1670,
+        "elite_review_count": 425
+      },
+      {
+        "key": "tarpon_springs_fl",
+        "city": "Tarpon Springs",
+        "state": "FL",
+        "business_count": 201,
+        "review_count": 13291,
+        "elite_review_count": 2717
+      },
+      {
+        "key": "temple_terrace_fl",
+        "city": "Temple Terrace",
+        "state": "FL",
+        "business_count": 74,
+        "review_count": 4126,
+        "elite_review_count": 1031
+      },
+      {
+        "key": "valrico_fl",
+        "city": "Valrico",
+        "state": "FL",
+        "business_count": 108,
+        "review_count": 4646,
+        "elite_review_count": 792
+      },
+      {
+        "key": "wesley_chapel_fl",
+        "city": "Wesley Chapel",
+        "state": "FL",
+        "business_count": 206,
+        "review_count": 15304,
+        "elite_review_count": 3331
+      },
+      {
+        "key": "zephyrhills_fl",
+        "city": "Zephyrhills",
+        "state": "FL",
+        "business_count": 73,
+        "review_count": 2594,
+        "elite_review_count": 409
+      }
+    ],
+    "ID": [
+      {
+        "key": "boise_id",
+        "city": "Boise",
+        "state": "ID",
+        "business_count": 1150,
+        "review_count": 75019,
+        "elite_review_count": 16058
+      },
+      {
+        "key": "eagle_id",
+        "city": "Eagle",
+        "state": "ID",
+        "business_count": 125,
+        "review_count": 7055,
+        "elite_review_count": 1215
+      },
+      {
+        "key": "garden_city_id",
+        "city": "Garden City",
+        "state": "ID",
+        "business_count": 71,
+        "review_count": 2780,
+        "elite_review_count": 650
+      },
+      {
+        "key": "meridian_id",
+        "city": "Meridian",
+        "state": "ID",
+        "business_count": 400,
+        "review_count": 26964,
+        "elite_review_count": 5062
+      }
+    ],
+    "IL": [
+      {
+        "key": "alton_il",
+        "city": "Alton",
+        "state": "IL",
+        "business_count": 96,
+        "review_count": 3032,
+        "elite_review_count": 707
+      },
+      {
+        "key": "belleville_il",
+        "city": "Belleville",
+        "state": "IL",
+        "business_count": 182,
+        "review_count": 6282,
+        "elite_review_count": 1191
+      },
+      {
+        "key": "collinsville_il",
+        "city": "Collinsville",
+        "state": "IL",
+        "business_count": 87,
+        "review_count": 2630,
+        "elite_review_count": 455
+      },
+      {
+        "key": "edwardsville_il",
+        "city": "Edwardsville",
+        "state": "IL",
+        "business_count": 165,
+        "review_count": 7278,
+        "elite_review_count": 1532
+      },
+      {
+        "key": "fairview_heights_il",
+        "city": "Fairview Heights",
+        "state": "IL",
+        "business_count": 100,
+        "review_count": 4914,
+        "elite_review_count": 995
+      },
+      {
+        "key": "granite_city_il",
+        "city": "Granite City",
+        "state": "IL",
+        "business_count": 54,
+        "review_count": 935,
+        "elite_review_count": 169
+      },
+      {
+        "key": "o'fallon_il",
+        "city": "O'Fallon",
+        "state": "IL",
+        "business_count": 68,
+        "review_count": 4180,
+        "elite_review_count": 774
+      }
+    ],
+    "IN": [
+      {
+        "key": "avon_in",
+        "city": "Avon",
+        "state": "IN",
+        "business_count": 136,
+        "review_count": 6656,
+        "elite_review_count": 1988
+      },
+      {
+        "key": "brownsburg_in",
+        "city": "Brownsburg",
+        "state": "IN",
+        "business_count": 104,
+        "review_count": 4092,
+        "elite_review_count": 1133
+      },
+      {
+        "key": "carmel_in",
+        "city": "Carmel",
+        "state": "IN",
+        "business_count": 385,
+        "review_count": 31248,
+        "elite_review_count": 12054
+      },
+      {
+        "key": "fishers_in",
+        "city": "Fishers",
+        "state": "IN",
+        "business_count": 270,
+        "review_count": 19148,
+        "elite_review_count": 6738
+      },
+      {
+        "key": "greenwood_in",
+        "city": "Greenwood",
+        "state": "IN",
+        "business_count": 270,
+        "review_count": 12462,
+        "elite_review_count": 3760
+      },
+      {
+        "key": "indianapolis_in",
+        "city": "Indianapolis",
+        "state": "IN",
+        "business_count": 3643,
+        "review_count": 282090,
+        "elite_review_count": 113777
+      },
+      {
+        "key": "mooresville_in",
+        "city": "Mooresville",
+        "state": "IN",
+        "business_count": 50,
+        "review_count": 1707,
+        "elite_review_count": 529
+      },
+      {
+        "key": "plainfield_in",
+        "city": "Plainfield",
+        "state": "IN",
+        "business_count": 129,
+        "review_count": 6089,
+        "elite_review_count": 1798
+      },
+      {
+        "key": "zionsville_in",
+        "city": "Zionsville",
+        "state": "IN",
+        "business_count": 112,
+        "review_count": 6296,
+        "elite_review_count": 2298
+      }
+    ],
+    "LA": [
+      {
+        "key": "chalmette_la",
+        "city": "Chalmette",
+        "state": "LA",
+        "business_count": 77,
+        "review_count": 1938,
+        "elite_review_count": 430
+      },
+      {
+        "key": "gretna_la",
+        "city": "Gretna",
+        "state": "LA",
+        "business_count": 177,
+        "review_count": 7457,
+        "elite_review_count": 2305
+      },
+      {
+        "key": "harahan_la",
+        "city": "Harahan",
+        "state": "LA",
+        "business_count": 73,
+        "review_count": 3848,
+        "elite_review_count": 1024
+      },
+      {
+        "key": "harvey_la",
+        "city": "Harvey",
+        "state": "LA",
+        "business_count": 140,
+        "review_count": 5672,
+        "elite_review_count": 1464
+      },
+      {
+        "key": "kenner_la",
+        "city": "Kenner",
+        "state": "LA",
+        "business_count": 292,
+        "review_count": 13780,
+        "elite_review_count": 3508
+      },
+      {
+        "key": "marrero_la",
+        "city": "Marrero",
+        "state": "LA",
+        "business_count": 99,
+        "review_count": 2439,
+        "elite_review_count": 555
+      },
+      {
+        "key": "metairie_la",
+        "city": "Metairie",
+        "state": "LA",
+        "business_count": 689,
+        "review_count": 46768,
+        "elite_review_count": 12953
+      },
+      {
+        "key": "new_orleans_la",
+        "city": "New Orleans",
+        "state": "LA",
+        "business_count": 3157,
+        "review_count": 533531,
+        "elite_review_count": 157451
+      }
+    ],
+    "MO": [
+      {
+        "key": "arnold_mo",
+        "city": "Arnold",
+        "state": "MO",
+        "business_count": 113,
+        "review_count": 3289,
+        "elite_review_count": 544
+      },
+      {
+        "key": "ballwin_mo",
+        "city": "Ballwin",
+        "state": "MO",
+        "business_count": 94,
+        "review_count": 5212,
+        "elite_review_count": 1260
+      },
+      {
+        "key": "bridgeton_mo",
+        "city": "Bridgeton",
+        "state": "MO",
+        "business_count": 80,
+        "review_count": 2792,
+        "elite_review_count": 577
+      },
+      {
+        "key": "chesterfield_mo",
+        "city": "Chesterfield",
+        "state": "MO",
+        "business_count": 85,
+        "review_count": 5101,
+        "elite_review_count": 1334
+      },
+      {
+        "key": "clayton_mo",
+        "city": "Clayton",
+        "state": "MO",
+        "business_count": 117,
+        "review_count": 12162,
+        "elite_review_count": 3870
+      },
+      {
+        "key": "creve_coeur_mo",
+        "city": "Creve Coeur",
+        "state": "MO",
+        "business_count": 90,
+        "review_count": 7289,
+        "elite_review_count": 1866
+      },
+      {
+        "key": "des_peres_mo",
+        "city": "Des Peres",
+        "state": "MO",
+        "business_count": 72,
+        "review_count": 3286,
+        "elite_review_count": 786
+      },
+      {
+        "key": "fenton_mo",
+        "city": "Fenton",
+        "state": "MO",
+        "business_count": 110,
+        "review_count": 3559,
+        "elite_review_count": 689
+      },
+      {
+        "key": "florissant_mo",
+        "city": "Florissant",
+        "state": "MO",
+        "business_count": 192,
+        "review_count": 5715,
+        "elite_review_count": 1070
+      },
+      {
+        "key": "kirkwood_mo",
+        "city": "Kirkwood",
+        "state": "MO",
+        "business_count": 108,
+        "review_count": 7236,
+        "elite_review_count": 1803
+      },
+      {
+        "key": "maplewood_mo",
+        "city": "Maplewood",
+        "state": "MO",
+        "business_count": 75,
+        "review_count": 6708,
+        "elite_review_count": 2128
+      },
+      {
+        "key": "maryland_heights_mo",
+        "city": "Maryland Heights",
+        "state": "MO",
+        "business_count": 101,
+        "review_count": 5274,
+        "elite_review_count": 1303
+      },
+      {
+        "key": "saint_charles_mo",
+        "city": "Saint Charles",
+        "state": "MO",
+        "business_count": 159,
+        "review_count": 7834,
+        "elite_review_count": 1534
+      },
+      {
+        "key": "saint_louis_mo",
+        "city": "Saint Louis",
+        "state": "MO",
+        "business_count": 2297,
+        "review_count": 200732,
+        "elite_review_count": 62034
+      },
+      {
+        "key": "st_charles_mo",
+        "city": "St Charles",
+        "state": "MO",
+        "business_count": 59,
+        "review_count": 4456,
+        "elite_review_count": 917
+      },
+      {
+        "key": "st_louis_mo",
+        "city": "St Louis",
+        "state": "MO",
+        "business_count": 175,
+        "review_count": 20573,
+        "elite_review_count": 5674
+      },
+      {
+        "key": "st._charles_mo",
+        "city": "St. Charles",
+        "state": "MO",
+        "business_count": 56,
+        "review_count": 4877,
+        "elite_review_count": 957
+      },
+      {
+        "key": "st._louis_mo",
+        "city": "St. Louis",
+        "state": "MO",
+        "business_count": 665,
+        "review_count": 50337,
+        "elite_review_count": 13927
+      },
+      {
+        "key": "university_city_mo",
+        "city": "University City",
+        "state": "MO",
+        "business_count": 72,
+        "review_count": 5442,
+        "elite_review_count": 1570
+      },
+      {
+        "key": "webster_groves_mo",
+        "city": "Webster Groves",
+        "state": "MO",
+        "business_count": 56,
+        "review_count": 4831,
+        "elite_review_count": 1304
+      }
+    ],
+    "NJ": [
+      {
+        "key": "berlin_nj",
+        "city": "Berlin",
+        "state": "NJ",
+        "business_count": 50,
+        "review_count": 1801,
+        "elite_review_count": 331
+      },
+      {
+        "key": "blackwood_nj",
+        "city": "Blackwood",
+        "state": "NJ",
+        "business_count": 57,
+        "review_count": 1539,
+        "elite_review_count": 309
+      },
+      {
+        "key": "bordentown_nj",
+        "city": "Bordentown",
+        "state": "NJ",
+        "business_count": 55,
+        "review_count": 3583,
+        "elite_review_count": 625
+      },
+      {
+        "key": "burlington_nj",
+        "city": "Burlington",
+        "state": "NJ",
+        "business_count": 105,
+        "review_count": 3450,
+        "elite_review_count": 602
+      },
+      {
+        "key": "camden_nj",
+        "city": "Camden",
+        "state": "NJ",
+        "business_count": 74,
+        "review_count": 1851,
+        "elite_review_count": 452
+      },
+      {
+        "key": "cherry_hill_nj",
+        "city": "Cherry Hill",
+        "state": "NJ",
+        "business_count": 373,
+        "review_count": 27083,
+        "elite_review_count": 6654
+      },
+      {
+        "key": "cinnaminson_nj",
+        "city": "Cinnaminson",
+        "state": "NJ",
+        "business_count": 56,
+        "review_count": 2733,
+        "elite_review_count": 511
+      },
+      {
+        "key": "clementon_nj",
+        "city": "Clementon",
+        "state": "NJ",
+        "business_count": 58,
+        "review_count": 1409,
+        "elite_review_count": 233
+      },
+      {
+        "key": "collingswood_nj",
+        "city": "Collingswood",
+        "state": "NJ",
+        "business_count": 97,
+        "review_count": 8778,
+        "elite_review_count": 2084
+      },
+      {
+        "key": "deptford_nj",
+        "city": "Deptford",
+        "state": "NJ",
+        "business_count": 52,
+        "review_count": 2530,
+        "elite_review_count": 528
+      },
+      {
+        "key": "ewing_nj",
+        "city": "Ewing",
+        "state": "NJ",
+        "business_count": 68,
+        "review_count": 3240,
+        "elite_review_count": 565
+      },
+      {
+        "key": "glassboro_nj",
+        "city": "Glassboro",
+        "state": "NJ",
+        "business_count": 89,
+        "review_count": 3440,
+        "elite_review_count": 488
+      },
+      {
+        "key": "haddonfield_nj",
+        "city": "Haddonfield",
+        "state": "NJ",
+        "business_count": 88,
+        "review_count": 4893,
+        "elite_review_count": 1147
+      },
+      {
+        "key": "lambertville_nj",
+        "city": "Lambertville",
+        "state": "NJ",
+        "business_count": 74,
+        "review_count": 6549,
+        "elite_review_count": 1089
+      },
+      {
+        "key": "maple_shade_nj",
+        "city": "Maple Shade",
+        "state": "NJ",
+        "business_count": 62,
+        "review_count": 3597,
+        "elite_review_count": 834
+      },
+      {
+        "key": "marlton_nj",
+        "city": "Marlton",
+        "state": "NJ",
+        "business_count": 157,
+        "review_count": 10800,
+        "elite_review_count": 2323
+      },
+      {
+        "key": "medford_nj",
+        "city": "Medford",
+        "state": "NJ",
+        "business_count": 94,
+        "review_count": 4212,
+        "elite_review_count": 594
+      },
+      {
+        "key": "moorestown_nj",
+        "city": "Moorestown",
+        "state": "NJ",
+        "business_count": 80,
+        "review_count": 5355,
+        "elite_review_count": 1141
+      },
+      {
+        "key": "mount_holly_nj",
+        "city": "Mount Holly",
+        "state": "NJ",
+        "business_count": 62,
+        "review_count": 2843,
+        "elite_review_count": 492
+      },
+      {
+        "key": "mount_laurel_nj",
+        "city": "Mount Laurel",
+        "state": "NJ",
+        "business_count": 134,
+        "review_count": 8156,
+        "elite_review_count": 1650
+      },
+      {
+        "key": "pennsauken_nj",
+        "city": "Pennsauken",
+        "state": "NJ",
+        "business_count": 78,
+        "review_count": 2270,
+        "elite_review_count": 491
+      },
+      {
+        "key": "sewell_nj",
+        "city": "Sewell",
+        "state": "NJ",
+        "business_count": 103,
+        "review_count": 4249,
+        "elite_review_count": 575
+      },
+      {
+        "key": "sicklerville_nj",
+        "city": "Sicklerville",
+        "state": "NJ",
+        "business_count": 94,
+        "review_count": 3413,
+        "elite_review_count": 472
+      },
+      {
+        "key": "swedesboro_nj",
+        "city": "Swedesboro",
+        "state": "NJ",
+        "business_count": 51,
+        "review_count": 2311,
+        "elite_review_count": 378
+      },
+      {
+        "key": "trenton_nj",
+        "city": "Trenton",
+        "state": "NJ",
+        "business_count": 216,
+        "review_count": 4950,
+        "elite_review_count": 974
+      },
+      {
+        "key": "voorhees_nj",
+        "city": "Voorhees",
+        "state": "NJ",
+        "business_count": 103,
+        "review_count": 5863,
+        "elite_review_count": 1123
+      },
+      {
+        "key": "williamstown_nj",
+        "city": "Williamstown",
+        "state": "NJ",
+        "business_count": 61,
+        "review_count": 1922,
+        "elite_review_count": 256
+      },
+      {
+        "key": "woodbury_nj",
+        "city": "Woodbury",
+        "state": "NJ",
+        "business_count": 71,
+        "review_count": 2634,
+        "elite_review_count": 501
+      }
+    ],
+    "NV": [
+      {
+        "key": "reno_nv",
+        "city": "Reno",
+        "state": "NV",
+        "business_count": 1910,
+        "review_count": 231568,
+        "elite_review_count": 57793
+      },
+      {
+        "key": "sparks_nv",
+        "city": "Sparks",
+        "state": "NV",
+        "business_count": 471,
+        "review_count": 44944,
+        "elite_review_count": 10237
+      }
+    ],
+    "PA": [
+      {
+        "key": "abington_pa",
+        "city": "Abington",
+        "state": "PA",
+        "business_count": 68,
+        "review_count": 3600,
+        "elite_review_count": 574
+      },
+      {
+        "key": "ambler_pa",
+        "city": "Ambler",
+        "state": "PA",
+        "business_count": 100,
+        "review_count": 6541,
+        "elite_review_count": 987
+      },
+      {
+        "key": "ardmore_pa",
+        "city": "Ardmore",
+        "state": "PA",
+        "business_count": 159,
+        "review_count": 11282,
+        "elite_review_count": 2695
+      },
+      {
+        "key": "aston_pa",
+        "city": "Aston",
+        "state": "PA",
+        "business_count": 63,
+        "review_count": 1747,
+        "elite_review_count": 360
+      },
+      {
+        "key": "bala_cynwyd_pa",
+        "city": "Bala Cynwyd",
+        "state": "PA",
+        "business_count": 63,
+        "review_count": 3732,
+        "elite_review_count": 786
+      },
+      {
+        "key": "bensalem_pa",
+        "city": "Bensalem",
+        "state": "PA",
+        "business_count": 206,
+        "review_count": 10023,
+        "elite_review_count": 1974
+      },
+      {
+        "key": "berwyn_pa",
+        "city": "Berwyn",
+        "state": "PA",
+        "business_count": 50,
+        "review_count": 3478,
+        "elite_review_count": 648
+      },
+      {
+        "key": "blue_bell_pa",
+        "city": "Blue Bell",
+        "state": "PA",
+        "business_count": 84,
+        "review_count": 5307,
+        "elite_review_count": 1022
+      },
+      {
+        "key": "bristol_pa",
+        "city": "Bristol",
+        "state": "PA",
+        "business_count": 71,
+        "review_count": 2639,
+        "elite_review_count": 401
+      },
+      {
+        "key": "broomall_pa",
+        "city": "Broomall",
+        "state": "PA",
+        "business_count": 59,
+        "review_count": 2586,
+        "elite_review_count": 468
+      },
+      {
+        "key": "bryn_mawr_pa",
+        "city": "Bryn Mawr",
+        "state": "PA",
+        "business_count": 118,
+        "review_count": 7028,
+        "elite_review_count": 1539
+      },
+      {
+        "key": "chadds_ford_pa",
+        "city": "Chadds Ford",
+        "state": "PA",
+        "business_count": 53,
+        "review_count": 3036,
+        "elite_review_count": 519
+      },
+      {
+        "key": "chalfont_pa",
+        "city": "Chalfont",
+        "state": "PA",
+        "business_count": 53,
+        "review_count": 2289,
+        "elite_review_count": 334
+      },
+      {
+        "key": "collegeville_pa",
+        "city": "Collegeville",
+        "state": "PA",
+        "business_count": 97,
+        "review_count": 6627,
+        "elite_review_count": 1006
+      },
+      {
+        "key": "conshohocken_pa",
+        "city": "Conshohocken",
+        "state": "PA",
+        "business_count": 130,
+        "review_count": 11189,
+        "elite_review_count": 2489
+      },
+      {
+        "key": "downingtown_pa",
+        "city": "Downingtown",
+        "state": "PA",
+        "business_count": 108,
+        "review_count": 5865,
+        "elite_review_count": 687
+      },
+      {
+        "key": "doylestown_pa",
+        "city": "Doylestown",
+        "state": "PA",
+        "business_count": 205,
+        "review_count": 10866,
+        "elite_review_count": 1613
+      },
+      {
+        "key": "drexel_hill_pa",
+        "city": "Drexel Hill",
+        "state": "PA",
+        "business_count": 87,
+        "review_count": 3596,
+        "elite_review_count": 534
+      },
+      {
+        "key": "elkins_park_pa",
+        "city": "Elkins Park",
+        "state": "PA",
+        "business_count": 56,
+        "review_count": 3346,
+        "elite_review_count": 773
+      },
+      {
+        "key": "exton_pa",
+        "city": "Exton",
+        "state": "PA",
+        "business_count": 173,
+        "review_count": 9394,
+        "elite_review_count": 1106
+      },
+      {
+        "key": "fairless_hills_pa",
+        "city": "Fairless Hills",
+        "state": "PA",
+        "business_count": 52,
+        "review_count": 2143,
+        "elite_review_count": 309
+      },
+      {
+        "key": "folsom_pa",
+        "city": "Folsom",
+        "state": "PA",
+        "business_count": 52,
+        "review_count": 2218,
+        "elite_review_count": 513
+      },
+      {
+        "key": "glen_mills_pa",
+        "city": "Glen Mills",
+        "state": "PA",
+        "business_count": 92,
+        "review_count": 6549,
+        "elite_review_count": 1158
+      },
+      {
+        "key": "glenside_pa",
+        "city": "Glenside",
+        "state": "PA",
+        "business_count": 84,
+        "review_count": 4333,
+        "elite_review_count": 735
+      },
+      {
+        "key": "hatboro_pa",
+        "city": "Hatboro",
+        "state": "PA",
+        "business_count": 77,
+        "review_count": 2751,
+        "elite_review_count": 364
+      },
+      {
+        "key": "havertown_pa",
+        "city": "Havertown",
+        "state": "PA",
+        "business_count": 119,
+        "review_count": 5593,
+        "elite_review_count": 1089
+      },
+      {
+        "key": "horsham_pa",
+        "city": "Horsham",
+        "state": "PA",
+        "business_count": 77,
+        "review_count": 5504,
+        "elite_review_count": 842
+      },
+      {
+        "key": "huntingdon_valley_pa",
+        "city": "Huntingdon Valley",
+        "state": "PA",
+        "business_count": 59,
+        "review_count": 3217,
+        "elite_review_count": 592
+      },
+      {
+        "key": "jenkintown_pa",
+        "city": "Jenkintown",
+        "state": "PA",
+        "business_count": 85,
+        "review_count": 5252,
+        "elite_review_count": 934
+      },
+      {
+        "key": "kennett_square_pa",
+        "city": "Kennett Square",
+        "state": "PA",
+        "business_count": 110,
+        "review_count": 5933,
+        "elite_review_count": 1281
+      },
+      {
+        "key": "king_of_prussia_pa",
+        "city": "King of Prussia",
+        "state": "PA",
+        "business_count": 201,
+        "review_count": 18180,
+        "elite_review_count": 4448
+      },
+      {
+        "key": "langhorne_pa",
+        "city": "Langhorne",
+        "state": "PA",
+        "business_count": 125,
+        "review_count": 6299,
+        "elite_review_count": 1202
+      },
+      {
+        "key": "lansdale_pa",
+        "city": "Lansdale",
+        "state": "PA",
+        "business_count": 164,
+        "review_count": 8171,
+        "elite_review_count": 1179
+      },
+      {
+        "key": "lansdowne_pa",
+        "city": "Lansdowne",
+        "state": "PA",
+        "business_count": 53,
+        "review_count": 1792,
+        "elite_review_count": 342
+      },
+      {
+        "key": "levittown_pa",
+        "city": "Levittown",
+        "state": "PA",
+        "business_count": 140,
+        "review_count": 4345,
+        "elite_review_count": 650
+      },
+      {
+        "key": "malvern_pa",
+        "city": "Malvern",
+        "state": "PA",
+        "business_count": 139,
+        "review_count": 8713,
+        "elite_review_count": 1519
+      },
+      {
+        "key": "media_pa",
+        "city": "Media",
+        "state": "PA",
+        "business_count": 174,
+        "review_count": 11812,
+        "elite_review_count": 2351
+      },
+      {
+        "key": "morrisville_pa",
+        "city": "Morrisville",
+        "state": "PA",
+        "business_count": 56,
+        "review_count": 1908,
+        "elite_review_count": 291
+      },
+      {
+        "key": "new_hope_pa",
+        "city": "New Hope",
+        "state": "PA",
+        "business_count": 138,
+        "review_count": 11294,
+        "elite_review_count": 2046
+      },
+      {
+        "key": "newtown_pa",
+        "city": "Newtown",
+        "state": "PA",
+        "business_count": 141,
+        "review_count": 8760,
+        "elite_review_count": 1483
+      },
+      {
+        "key": "newtown_square_pa",
+        "city": "Newtown Square",
+        "state": "PA",
+        "business_count": 73,
+        "review_count": 4262,
+        "elite_review_count": 767
+      },
+      {
+        "key": "norristown_pa",
+        "city": "Norristown",
+        "state": "PA",
+        "business_count": 199,
+        "review_count": 7771,
+        "elite_review_count": 1314
+      },
+      {
+        "key": "north_wales_pa",
+        "city": "North Wales",
+        "state": "PA",
+        "business_count": 123,
+        "review_count": 8451,
+        "elite_review_count": 1589
+      },
+      {
+        "key": "paoli_pa",
+        "city": "Paoli",
+        "state": "PA",
+        "business_count": 60,
+        "review_count": 2647,
+        "elite_review_count": 433
+      },
+      {
+        "key": "philadelphia_pa",
+        "city": "Philadelphia",
+        "state": "PA",
+        "business_count": 7457,
+        "review_count": 759881,
+        "elite_review_count": 245229
+      },
+      {
+        "key": "phoenixville_pa",
+        "city": "Phoenixville",
+        "state": "PA",
+        "business_count": 182,
+        "review_count": 9855,
+        "elite_review_count": 1660
+      },
+      {
+        "key": "pottstown_pa",
+        "city": "Pottstown",
+        "state": "PA",
+        "business_count": 163,
+        "review_count": 5457,
+        "elite_review_count": 590
+      },
+      {
+        "key": "royersford_pa",
+        "city": "Royersford",
+        "state": "PA",
+        "business_count": 96,
+        "review_count": 4302,
+        "elite_review_count": 574
+      },
+      {
+        "key": "souderton_pa",
+        "city": "Souderton",
+        "state": "PA",
+        "business_count": 52,
+        "review_count": 1975,
+        "elite_review_count": 188
+      },
+      {
+        "key": "southampton_pa",
+        "city": "Southampton",
+        "state": "PA",
+        "business_count": 63,
+        "review_count": 3539,
+        "elite_review_count": 568
+      },
+      {
+        "key": "springfield_pa",
+        "city": "Springfield",
+        "state": "PA",
+        "business_count": 121,
+        "review_count": 6660,
+        "elite_review_count": 1365
+      },
+      {
+        "key": "upper_darby_pa",
+        "city": "Upper Darby",
+        "state": "PA",
+        "business_count": 119,
+        "review_count": 4749,
+        "elite_review_count": 1064
+      },
+      {
+        "key": "warminster_pa",
+        "city": "Warminster",
+        "state": "PA",
+        "business_count": 114,
+        "review_count": 4417,
+        "elite_review_count": 594
+      },
+      {
+        "key": "warrington_pa",
+        "city": "Warrington",
+        "state": "PA",
+        "business_count": 82,
+        "review_count": 4790,
+        "elite_review_count": 768
+      },
+      {
+        "key": "wayne_pa",
+        "city": "Wayne",
+        "state": "PA",
+        "business_count": 156,
+        "review_count": 11978,
+        "elite_review_count": 2544
+      },
+      {
+        "key": "west_chester_pa",
+        "city": "West Chester",
+        "state": "PA",
+        "business_count": 349,
+        "review_count": 17867,
+        "elite_review_count": 2622
+      },
+      {
+        "key": "willow_grove_pa",
+        "city": "Willow Grove",
+        "state": "PA",
+        "business_count": 113,
+        "review_count": 8159,
+        "elite_review_count": 1546
+      },
+      {
+        "key": "yardley_pa",
+        "city": "Yardley",
+        "state": "PA",
+        "business_count": 66,
+        "review_count": 5385,
+        "elite_review_count": 920
+      }
+    ],
+    "TN": [
+      {
+        "key": "antioch_tn",
+        "city": "Antioch",
+        "state": "TN",
+        "business_count": 120,
+        "review_count": 5733,
+        "elite_review_count": 1057
+      },
+      {
+        "key": "brentwood_tn",
+        "city": "Brentwood",
+        "state": "TN",
+        "business_count": 209,
+        "review_count": 15306,
+        "elite_review_count": 3600
+      },
+      {
+        "key": "franklin_tn",
+        "city": "Franklin",
+        "state": "TN",
+        "business_count": 561,
+        "review_count": 41052,
+        "elite_review_count": 8601
+      },
+      {
+        "key": "gallatin_tn",
+        "city": "Gallatin",
+        "state": "TN",
+        "business_count": 78,
+        "review_count": 2280,
+        "elite_review_count": 338
+      },
+      {
+        "key": "goodlettsville_tn",
+        "city": "Goodlettsville",
+        "state": "TN",
+        "business_count": 90,
+        "review_count": 3204,
+        "elite_review_count": 499
+      },
+      {
+        "key": "hendersonville_tn",
+        "city": "Hendersonville",
+        "state": "TN",
+        "business_count": 223,
+        "review_count": 10845,
+        "elite_review_count": 1721
+      },
+      {
+        "key": "hermitage_tn",
+        "city": "Hermitage",
+        "state": "TN",
+        "business_count": 119,
+        "review_count": 6625,
+        "elite_review_count": 1175
+      },
+      {
+        "key": "la_vergne_tn",
+        "city": "La Vergne",
+        "state": "TN",
+        "business_count": 52,
+        "review_count": 1038,
+        "elite_review_count": 152
+      },
+      {
+        "key": "madison_tn",
+        "city": "Madison",
+        "state": "TN",
+        "business_count": 109,
+        "review_count": 4450,
+        "elite_review_count": 904
+      },
+      {
+        "key": "mount_juliet_tn",
+        "city": "Mount Juliet",
+        "state": "TN",
+        "business_count": 128,
+        "review_count": 5924,
+        "elite_review_count": 1065
+      },
+      {
+        "key": "nashville_tn",
+        "city": "Nashville",
+        "state": "TN",
+        "business_count": 3257,
+        "review_count": 362043,
+        "elite_review_count": 99517
+      },
+      {
+        "key": "smyrna_tn",
+        "city": "Smyrna",
+        "state": "TN",
+        "business_count": 201,
+        "review_count": 7501,
+        "elite_review_count": 1420
+      },
+      {
+        "key": "white_house_tn",
+        "city": "White House",
+        "state": "TN",
+        "business_count": 51,
+        "review_count": 1493,
+        "elite_review_count": 210
+      }
+    ]
+  },
+  "total_cities": 197
+}
