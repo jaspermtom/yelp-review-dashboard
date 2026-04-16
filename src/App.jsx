@@ -3,7 +3,7 @@ import * as d3 from "d3";
 
 const C1="#C41200",C2="#0E7490",FF="'IBM Plex Sans',sans-serif",FH="'Fraunces',serif";
 const SC1={"5":"#C41200","4":"#D93D2B","3":"#E86858","2":"#B85450","1":"#8B4845"},SC2={"5":"#0E7490","4":"#1594B0","3":"#2BB4CC","2":"#1B8A9E","1":"#1A6B7A"};
-const ML=[1,5,10,25,50,100],YRS=["All Time","2022","2021","2020","2019","2018","2017","2016","2015","2014","2013","2012","2011"],SD=[5,4,3,2,1],MBP=55,MAX_DAILY=100;
+const ML=[1,5,10,25,50,100],YRS=["All Time","2022","2021","2020","2019","2018","2017","2016","2015","2014","2013","2012","2011"],SD=[5,4,3,2,1],MBP=55,MAX_DAILY=30;
 const fmt=n=>{if(n>=1e6)return(n/1e6).toFixed(2)+"M";if(n>=1e3)return(n/1e3).toFixed(n>=1e4?0:1)+"K";return n.toLocaleString()};
 const gfl=(hs,ht)=>{if(!hs)return"All users · 1–5★";return`${ht==="elite"?"Elite":ht==="regular"?"Regular":"All users"} · ${hs}★`};
 const gCL=(k,ci)=>{if(k==="national")return"United States";return Object.values(ci?.states||{}).flat().find(c=>c.key===k)?.city||k};
@@ -79,8 +79,8 @@ function useAIInsights(data,data2,label1,label2){
   const[usage,setUsage]=useState(0);
   const cancelRef=useRef(false);
   const timerRef=useRef(null);
-  useEffect(()=>{try{const r=localStorage.getItem("ai_usage");if(r){const d=JSON.parse(r);const today=new Date().toDateString();setUsage(d.date===today?d.count:0)}else setUsage(0)}catch{setUsage(0)}},[]);
-  const save=c=>{try{localStorage.setItem("ai_usage",JSON.stringify({date:new Date().toDateString(),count:c}))}catch{}};
+  useEffect(()=>{fetch("https://yelp-ai-proxy.jaspermtom.workers.dev",{method:"GET"}).then(r=>r.json()).then(d=>{setUsage(MAX_DAILY-(d.remaining??MAX_DAILY))}).catch(()=>setUsage(0))},[]);
+  const save=()=>{};
   const remaining=MAX_DAILY-usage;
   const generate=()=>{
     if(usage>=MAX_DAILY||phase!=='idle')return;
@@ -92,7 +92,7 @@ function useAIInsights(data,data2,label1,label2){
       setPhase('loading');
       const getPct=(d,s)=>{const t=Object.values(d.star_counts).reduce((a,b)=>a+b.total,0);return Math.round((d.star_counts[s].total/t)*100)};
       const ctx=`Location: ${label1}. Stars: ${SD.map(s=>`${s}★=${getPct(data,s)}%`).join(", ")}. Elite%: ${SD.map(s=>`${s}★=${data.star_counts[s].elite_pct.toFixed(1)}%`).join(", ")}. Total: ${fmt(data.meta.total_reviews)}.${data2?` Compare: ${label2}. Stars: ${SD.map(s=>`${s}★=${getPct(data2,s)}%`).join(", ")}. Elite%: ${SD.map(s=>`${s}★=${data2.star_counts[s].elite_pct.toFixed(1)}%`).join(", ")}.`:""}`;
-      try{const r=await fetch("https://yelp-ai-proxy.jaspermtom.workers.dev",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:600,messages:[{role:"user",content:`Analyze this Yelp data:\n${ctx}\nProvide exactly 3 interesting, specific, data-driven insights. Each 1-2 sentences. Format as JSON array: [{"title":"4-6 words","body":"insight text"}]. Return ONLY JSON.`}]})});const d=await r.json();if(cancelRef.current){setPhase('idle');return;}const text=d.content?.map(c=>c.text||"").join("")||"";const parsed=JSON.parse(text.replace(/```json|```/g,"").trim());setInsights(parsed);const nc=usage+1;setUsage(nc);save(nc);try{if(window.posthog)window.posthog.capture('ai_insights_generated',{comparison_mode:!!data2});}catch{}
+      try{const r=await fetch("https://yelp-ai-proxy.jaspermtom.workers.dev",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:600,messages:[{role:"user",content:`Analyze this Yelp data:\n${ctx}\nProvide exactly 3 interesting, specific, data-driven insights. Each 1-2 sentences. Format as JSON array: [{"title":"4-6 words","body":"insight text"}]. Return ONLY JSON.`}]})});const d=await r.json();if(cancelRef.current){setPhase('idle');return;}const text=d.content?.map(c=>c.text||"").join("")||"";const parsed=JSON.parse(text.replace(/```json|```/g,"").trim());setInsights(parsed);const nr=d._remaining??0;setUsage(MAX_DAILY-nr);save();try{if(window.posthog)window.posthog.capture('ai_insights_generated',{comparison_mode:!!data2});}catch{}
 }catch{if(!cancelRef.current)setInsights([{title:"Generation failed",body:"Could not connect to the AI service. Please try again."}])}
       if(!cancelRef.current)setPhase('idle');
     },3000);
@@ -400,7 +400,7 @@ if(!natData||!cityIndex)return(<div style={{display:'flex',alignItems:'center',j
               </Btn>
               {showTip&&<div className="yd-ai-tip" style={{position:"absolute",top:"100%",left:0,marginTop:5,background:"#fff",border:"1px solid #ddd",borderRadius:10,padding:"14px 18px",width:300,maxWidth:"calc(100vw - 48px)",zIndex:9999,boxShadow:"0 8px 24px rgba(0,0,0,0.14)",fontFamily:FF,fontSize:12,color:"#555",lineHeight:1.6}}>
                 <p style={{margin:"0 0 8px"}}><strong style={{color:"#333"}}>Who</strong><br/>This data is sent to the Anthropic API, which uses Claude to provide analysis.</p>
-                <p style={{margin:0}}><strong style={{color:"#333"}}>What</strong><br/>Claude will generate 3 insights in text form and display them below. To keep my costs manageable, the daily limit is 100 API calls. There are {ai.remaining} API calls available today.</p>
+                <p style={{margin:0}}><strong style={{color:"#333"}}>What</strong><br/>Claude will generate 3 insights in text form and display them below. To keep my costs manageable, the daily limit is 30 API calls across all visitors. There are {ai.remaining} API calls available today.</p>
               </div>}
             </div>
             <Btn onClick={()=>tour.start()} style={{padding:"4px 14px",fontSize:13,fontFamily:FF,fontWeight:500,border:"2px solid #888",borderRadius:8,background:"#fff",color:"#444",display:"flex",alignItems:"center",gap:6,flexShrink:0}}>
@@ -433,7 +433,7 @@ if(!natData||!cityIndex)return(<div style={{display:'flex',alignItems:'center',j
             {showTip&&<div className="yd-ai-tip" style={{position:"absolute",top:"100%",left:0,marginTop:5,background:"#fff",border:"1px solid #ddd",borderRadius:10,padding:"14px 18px",width:"calc(100vw - 48px)",maxWidth:"calc(100vw - 48px)",
 zIndex:9999,boxShadow:"0 12px 32px rgba(0,0,0,0.18)",fontFamily:FF,fontSize:12,color:"#555",lineHeight:1.6}}>
               <p style={{margin:"0 0 8px"}}><strong style={{color:"#333"}}>Who</strong><br/>This data is sent to the Anthropic API, which uses Claude to provide analysis.</p>
-              <p style={{margin:0}}><strong style={{color:"#333"}}>What</strong><br/>Claude will generate 3 insights in text form and display them below. To keep my costs manageable, the daily limit is 100 API calls. There are {ai.remaining} API calls available today.</p>
+              <p style={{margin:0}}><strong style={{color:"#333"}}>What</strong><br/>Claude will generate 3 insights in text form and display them below. To keep my costs manageable, the daily limit is 30 API calls across all visitors. There are {ai.remaining} API calls available today.</p>
             </div>}
           </div>
           <Btn onClick={()=>tour.start()} style={{padding:"4px 14px",fontSize:13,fontFamily:FF,fontWeight:500,border:"2px solid #888",borderRadius:8,background:"#fff",color:"#444",display:"flex",alignItems:"center",gap:6,flexShrink:0}}>
