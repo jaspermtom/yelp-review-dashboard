@@ -124,8 +124,8 @@ function isNewUser(){
 const TOUR_STEPS=[
   {
     target:'yd-tour-composition',
-    title:'Review Composition',
-    body:'Hover over any star row to explore the breakdown. You can see all reviews combined, or filter to just Elite or Regular users and watch the other charts update live.',
+    title:'Welcome!',
+    body:'Hover over any star row to explore the breakdown between Elite, Regular, and All users. This chart tells you the percentage of all United States reviews that were 5★ and how many of those reviews were from Elite versus Regular users.',
     demoHs:5,demoHt:'all',
   },
   {
@@ -136,8 +136,8 @@ const TOUR_STEPS=[
   },
   {
     target:'yd-tour-trajectory',
-    title:'Restaurant Rating Trajectory',
-    body:"Each line tracks how a restaurant's rating evolves, averaged across every restaurant with a final rating in 2022 of 5★, 4★, etc.",
+    title:'What is Restaurant Rating Trajectory?',
+    body:"Each line tracks the change in averaged restaurant ratings across 5 buckets of cumulative ratings (~4.5★, ~4★, etc). For all United States restaurants with a ~2.5★ rating, this shows their first review on average was 2.83★.",
     demoHs:1,demoHt:null,
   },
 ];
@@ -335,6 +335,9 @@ if(!natData||!cityIndex)return(<div style={{display:'flex',alignItems:'center',j
   const tourStepBody=(()=>{
     if(!tour.active||tour.tourStep<0)return"";
     const step=tour.tourStep;
+    if(step===0){
+      return`Hover over any star row to explore the breakdown between Elite, Regular, and All users. This chart tells you the percentage of all ${l1} reviews that were 5★ and how many of those reviews were from Elite versus Regular users.`;
+    }
     if(step===2){
       const firstAvg=data.trajectories&&data.trajectories["poor"]&&data.trajectories["poor"].all&&data.trajectories["poor"].all["1"]?data.trajectories["poor"].all["1"].avg:null;      const avgStr=firstAvg!=null?firstAvg.toFixed(2)+"\u2605":"—";
       return"Each line tracks the change in averaged restaurant ratings across 5 buckets of cumulative ratings (~4.5\u2605, ~4\u2605, etc). For all "+l1+" restaurants with a ~2.5\u2605 rating, this shows their first review on average was "+avgStr+".";
