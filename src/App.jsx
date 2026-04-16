@@ -90,7 +90,8 @@ function useAIInsights(data,data2,label1,label2){
     timerRef.current=setTimeout(async()=>{
       if(cancelRef.current)return;
       setPhase('loading');
-      const ctx=`Location: ${label1}. Stars: ${SD.map(s=>`${s}★=${data.star_pcts[s]}%`).join(", ")}. Elite%: ${SD.map(s=>`${s}★=${data.star_counts[s].elite_pct.toFixed(1)}%`).join(", ")}. Total: ${fmt(data.meta.total_reviews)}.${data2?` Compare: ${label2}. Stars: ${SD.map(s=>`${s}★=${data2.star_pcts[s]}%`).join(", ")}. Elite%: ${SD.map(s=>`${s}★=${data2.star_counts[s].elite_pct.toFixed(1)}%`).join(", ")}.`:""}`;
+      const getPct=(d,s)=>{const t=Object.values(d.star_counts).reduce((a,b)=>a+b.total,0);return Math.round((d.star_counts[s].total/t)*100)};
+      const ctx=`Location: ${label1}. Stars: ${SD.map(s=>`${s}★=${getPct(data,s)}%`).join(", ")}. Elite%: ${SD.map(s=>`${s}★=${data.star_counts[s].elite_pct.toFixed(1)}%`).join(", ")}. Total: ${fmt(data.meta.total_reviews)}.${data2?` Compare: ${label2}. Stars: ${SD.map(s=>`${s}★=${getPct(data2,s)}%`).join(", ")}. Elite%: ${SD.map(s=>`${s}★=${data2.star_counts[s].elite_pct.toFixed(1)}%`).join(", ")}.`:""}`;
       try{const r=await fetch("https://yelp-ai-proxy.jaspermtom.workers.dev",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:600,messages:[{role:"user",content:`Analyze this Yelp data:\n${ctx}\nProvide exactly 3 interesting, specific, data-driven insights. Each 1-2 sentences. Format as JSON array: [{"title":"4-6 words","body":"insight text"}]. Return ONLY JSON.`}]})});const d=await r.json();if(cancelRef.current){setPhase('idle');return;}const text=d.content?.map(c=>c.text||"").join("")||"";const parsed=JSON.parse(text.replace(/```json|```/g,"").trim());setInsights(parsed);const nc=usage+1;setUsage(nc);save(nc);try{if(window.posthog)window.posthog.capture('ai_insights_generated',{comparison_mode:!!data2});}catch{}
 }catch{if(!cancelRef.current)setInsights([{title:"Generation failed",body:"Could not connect to the AI service. Please try again."}])}
       if(!cancelRef.current)setPhase('idle');
@@ -392,7 +393,7 @@ if(!natData||!cityIndex)return(<div style={{display:'flex',alignItems:'center',j
           {!mob&&<div style={{display:"flex",alignItems:"flex-end",gap:8,flexShrink:0}}>
             <div style={{position:"relative"}} onMouseEnter={()=>setShowTip(true)} onMouseLeave={()=>setShowTip(false)} ref={aiBtnRef}>
               <Btn onClick={ai.generate} disabled={ai.remaining<=0||ai.loading||ai.cancelling} style={{padding:"4px 14px",fontSize:13,fontFamily:FF,fontWeight:500,border:"2px solid #888",borderRadius:8,background:"#fff",color:ai.remaining<=0?"#999":"#444",display:"flex",alignItems:"center",gap:6}}>
-                <RobotIcon size={13}/>{ai.loading?"Generating...":"Generate AI Insights"}
+                <RobotIcon size={13}/>{ai.loading?"Generating AI Insights...":"Generate AI Insights"}
               </Btn>
               {showTip&&<div className="yd-ai-tip" style={{position:"absolute",top:"100%",left:0,marginTop:5,background:"#fff",border:"1px solid #ddd",borderRadius:10,padding:"14px 18px",width:300,maxWidth:"calc(100vw - 48px)",zIndex:9999,boxShadow:"0 8px 24px rgba(0,0,0,0.14)",fontFamily:FF,fontSize:12,color:"#555",lineHeight:1.6}}>
                 <p style={{margin:"0 0 8px"}}><strong style={{color:"#333"}}>Who</strong><br/>This data is sent to the Anthropic API, which uses Claude to provide analysis.</p>
