@@ -31,7 +31,7 @@ Tracks how restaurant ratings changed on average as they accumulated more review
 ### AI Insights
 Generates three data-driven insights about the currently selected location using the Anthropic API.
 
-<img src="screenshots/dashboard4-ai_insights.png" alt="AI insight feature on dashboard">
+<img src="screenshots/dashboard4-ai_insight.png" alt="AI insight feature on dashboard">
 
 <br>
 
