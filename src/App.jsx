@@ -79,8 +79,8 @@ function useAIInsights(data,data2,label1,label2){
   const[usage,setUsage]=useState(0);
   const cancelRef=useRef(false);
   const timerRef=useRef(null);
-  useEffect(()=>{(async()=>{try{const r=await window.storage.get("ai_usage");if(r){const d=JSON.parse(r.value);const today=new Date().toDateString();setUsage(d.date===today?d.count:0)}else setUsage(0)}catch{setUsage(0)}})()},[]);
-  const save=async c=>{try{await window.storage.set("ai_usage",JSON.stringify({date:new Date().toDateString(),count:c}))}catch{}};
+  useEffect(()=>{try{const r=localStorage.getItem("ai_usage");if(r){const d=JSON.parse(r);const today=new Date().toDateString();setUsage(d.date===today?d.count:0)}else setUsage(0)}catch{setUsage(0)}},[]);
+  const save=c=>{try{localStorage.setItem("ai_usage",JSON.stringify({date:new Date().toDateString(),count:c}))}catch{}};
   const remaining=MAX_DAILY-usage;
   const generate=()=>{
     if(usage>=MAX_DAILY||phase!=='idle')return;
