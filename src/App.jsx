@@ -137,7 +137,7 @@ const TOUR_STEPS=[
   {
     target:'yd-tour-trajectory',
     title:'What is Restaurant Rating Trajectory?',
-    body:"Each line tracks the change in averaged restaurant ratings across 5 buckets of cumulative ratings (~4.5★, ~4★, etc). For all United States restaurants with a ~2.5★ rating, this shows their first review on average was 2.83★.",
+    body:"Each line tracks the change in averaged restaurant ratings across 5 tiers of cumulative ratings (~4.5★, ~4★, etc). For all United States restaurants with a ~2.5★ rating, this shows their first review on average was 2.83★.",
     demoHs:1,demoHt:null,
   },
 ];
@@ -340,7 +340,7 @@ if(!natData||!cityIndex)return(<div style={{display:'flex',alignItems:'center',j
     }
     if(step===2){
       const firstAvg=data.trajectories&&data.trajectories["poor"]&&data.trajectories["poor"].all&&data.trajectories["poor"].all["1"]?data.trajectories["poor"].all["1"].avg:null;      const avgStr=firstAvg!=null?firstAvg.toFixed(2)+"\u2605":"—";
-      return"Each line tracks the change in averaged restaurant ratings across 5 buckets of cumulative ratings (~4.5\u2605, ~4\u2605, etc). For all "+l1+" restaurants with a ~2.5\u2605 rating, this shows their first review on average was "+avgStr+".";
+      return"Each line tracks the change in averaged restaurant ratings across 5 tiers of cumulative ratings (~4.5\u2605, ~4\u2605, etc). For all "+l1+" restaurants with a ~2.5\u2605 rating, this shows their first review on average was "+avgStr+".";
     }
     return TOUR_STEPS[step].body;
   })();
