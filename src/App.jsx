@@ -183,9 +183,10 @@ function TourSpotlight({targetId,onNext,onSkip,onGoTo,step,total,demoHs,demoHt,s
   const spotH=rect.height+PAD*2;
 
   const isMob=vw<600;
-  const tipW=isMob?vw-48:Math.min(340,vw-48);
+  const tipW=isMob?null:Math.min(340,vw-48);
   const tipH=240;
-  const tipLeft=isMob?24:Math.max(8,Math.min(spotLeft,vw-tipW-16));
+  const tipLeft=isMob?12:Math.max(8,Math.min(spotLeft,vw-tipW-16));
+  const tipRight=isMob?12:null;
   let tipTop=spotTop+spotH+14;
   if(tipTop-scrollY+tipH>vh-20){tipTop=spotTop-tipH-14;}
   const safeTipTop=Math.max(isMob?80:8,Math.min(tipTop-scrollY,vh-tipH-8));
@@ -208,7 +209,7 @@ function TourSpotlight({targetId,onNext,onSkip,onGoTo,step,total,demoHs,demoHt,s
         position:'fixed',
         top:safeTipTop,
         left:tipLeft,
-        width:tipW,
+        ...(tipRight!==null?{right:tipRight}:{width:tipW}),
         background:'#fff',
         borderRadius:14,
         padding:'18px 20px 16px',
@@ -394,7 +395,7 @@ if(!natData||!cityIndex)return(<div style={{display:'flex',alignItems:'center',j
           {!mob&&<div style={{flex:"1 1 0",minWidth:0}}/>}
           {/* AI + Dashboard Tour — bottom-aligned, wrap to new line if needed */}
           {!mob&&<div style={{display:"flex",alignItems:"flex-end",gap:8,flexShrink:0}}>
-            <div style={{position:"relative"}} ref={aiBtnRef}>
+            <div style={{position:"relative"}} onMouseEnter={()=>setShowTip(true)} onMouseLeave={()=>setShowTip(false)} ref={aiBtnRef}>
               <Btn onClick={ai.generate} disabled={ai.remaining<=0||ai.loading||ai.cancelling} style={{padding:"4px 14px",fontSize:13,fontFamily:FF,fontWeight:500,border:"2px solid #888",borderRadius:8,background:"#fff",color:ai.remaining<=0?"#999":"#444",display:"flex",alignItems:"center",gap:6}}>
                 <RobotIcon size={13}/>{ai.loading?"Generating AI Insights...":"Generate AI Insights"}
               </Btn>
