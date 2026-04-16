@@ -61,10 +61,10 @@ function ReviewComposition({data,data2,label1,label2,hs,setHs,ht,setHt}){const i
       </div>}
     </div></div>)}
 
-function TrajectoryChart({data,data2,hs,ht,label1,label2,bc1,bc2}){const svgRef=useRef(null),containerRef=useRef(null),[dims,setDims]=useState({w:480,h:300});useEffect(()=>{const ro=new ResizeObserver(entries=>{for(const e of entries)setDims({w:Math.max(240,e.contentRect.width),h:300})});if(containerRef.current)ro.observe(containerRef.current);return()=>ro.disconnect()},[]);useEffect(()=>{if(!svgRef.current||!data)return;const svg=d3.select(svgRef.current);svg.selectAll("*").remove();const m={top:14,right:80,bottom:48,left:72},{w,h}=dims,iw=w-m.left-m.right,ih=h-m.top-m.bottom;const g=svg.append("g").attr("transform",`translate(${m.left},${m.top})`);const ut=ht==="elite"?"elite":ht==="regular"?"regular":"all";const sp=iw/(ML.length-1),xp={};ML.forEach((ml,i)=>{xp[ml]=i*sp});const x=ml=>xp[ml]??0;const y=d3.scaleLinear().domain([0.5,5.0]).range([ih,0]);[0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0].forEach(v=>{g.append("line").attr("x1",0).attr("x2",iw).attr("y1",y(v)).attr("y2",y(v)).attr("stroke",v%1===0?"#e0e0e0":"#f0f0f0");g.append("text").attr("x",-8).attr("y",y(v)).attr("text-anchor","end").attr("dominant-baseline","middle").attr("fill","#555").attr("font-size","11px").attr("font-family","'DM Mono',monospace").text(v.toFixed(1))});
+function TrajectoryChart({data,data2,hs,ht,label1,label2,bc1,bc2}){const svgRef=useRef(null),containerRef=useRef(null),[dims,setDims]=useState({w:480,h:300});useEffect(()=>{const ro=new ResizeObserver(entries=>{for(const e of entries)setDims({w:Math.max(240,e.contentRect.width),h:300})});if(containerRef.current)ro.observe(containerRef.current);return()=>ro.disconnect()},[]);useEffect(()=>{if(!svgRef.current||!data)return;const svg=d3.select(svgRef.current);svg.selectAll("*").remove();const m={top:14,right:50,bottom:48,left:72},{w,h}=dims,iw=w-m.left-m.right,ih=h-m.top-m.bottom;const g=svg.append("g").attr("transform",`translate(${m.left},${m.top})`);const ut=ht==="elite"?"elite":ht==="regular"?"regular":"all";const sp=iw/(ML.length-1),xp={};ML.forEach((ml,i)=>{xp[ml]=i*sp});const x=ml=>xp[ml]??0;const y=d3.scaleLinear().domain([0.5,5.0]).range([ih,0]);[0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0].forEach(v=>{g.append("line").attr("x1",0).attr("x2",iw).attr("y1",y(v)).attr("y2",y(v)).attr("stroke",v%1===0?"#e0e0e0":"#f0f0f0");g.append("text").attr("x",-8).attr("y",y(v)).attr("text-anchor","end").attr("dominant-baseline","middle").attr("fill","#555").attr("font-size","11px").attr("font-family","'DM Mono',monospace").text(v.toFixed(1))});
 // Y-axis title (rotated)
 svg.append("text").attr("transform",`rotate(-90)`).attr("x",-(m.top+ih/2)).attr("y",14).attr("text-anchor","middle").attr("fill","#555").attr("font-size","9px").attr("letter-spacing","1.2px").attr("font-family",FF).text("RESTAURANT RATING");
-ML.forEach(ml=>{g.append("text").attr("x",x(ml)).attr("y",ih+16).attr("text-anchor","middle").attr("fill","#555").attr("font-size","11px").attr("font-family","'DM Mono',monospace").text(ml)});g.append("text").attr("x",iw/2).attr("y",ih+36).attr("text-anchor","middle").attr("fill","#555").attr("font-size","10px").attr("letter-spacing","1.5px").attr("font-family",FF).text("NUMBER OF REVIEWS");const TIER_MAP={5:"strong",4:"good",3:"average",2:"weak",1:"poor"};const TIERS=["strong","good","average","weak","poor"];const TIER_COLORS1={strong:"#C41200",good:"#D93D2B",average:"#E86858",weak:"#B85450",poor:"#8B4845"};const TIER_COLORS2={strong:"#0E7490",good:"#1594B0",average:"#2BB4CC",weak:"#1B8A9E",poor:"#1A6B7A"};const activeTier=hs?TIER_MAP[hs]:null;const line=d3.line().x(d=>x(d.m)).y(d=>y(d.avg)).curve(d3.curveMonotoneX);const labels={};const draw=(ds,cm)=>{TIERS.forEach(tier=>{const traj=ds.trajectories?.[tier]?.[ut];if(!traj)return;const pts=ML.filter(ml=>traj[ml]).map(ml=>({m:ml,avg:traj[ml].avg}));if(pts.length<2)return;const hi=activeTier===null||activeTier===tier;const op=hi?0.9:0.25;const sw=hi&&activeTier===tier?4:hi?2:1.5;g.append("path").datum(pts).attr("d",line).attr("fill","none").attr("stroke",cm[tier]).attr("stroke-width",sw).attr("opacity",op);if(hi)pts.forEach(p=>g.append("circle").attr("cx",x(p.m)).attr("cy",y(p.avg)).attr("r",activeTier===tier?4:3).attr("fill",cm[tier]).attr("opacity",op));const last=pts[pts.length-1];if(!labels[tier])labels[tier]=[];labels[tier].push({y:y(last.avg),color:cm[tier],op,sw})})};draw(data,TIER_COLORS1);if(data2)draw(data2,TIER_COLORS2);const TIER_LABELS={strong:"Strong ~4.5★",good:"Good ~4.0★",average:"Avg ~3.6★",weak:"Weak ~3.1★",poor:"Poor ~2.5★"};Object.entries(labels).forEach(([tier,arr])=>{const label=TIER_LABELS[tier]||tier;if(arr.length===2){const midY=(arr[0].y+arr[1].y)/2;g.append("text").attr("x",x(100)+8).attr("y",midY-6).attr("dominant-baseline","auto").attr("fill",arr[0].color).attr("font-size","10px").attr("font-weight",arr[0].sw>2?"700":"400").attr("font-family",FF).attr("opacity",arr[0].op).text(label);g.append("text").attr("x",x(100)+28).attr("y",midY-6).attr("dominant-baseline","auto").attr("fill",arr[1].color).attr("font-size","10px").attr("font-weight",arr[1].sw>2?"700":"400").attr("font-family",FF).attr("opacity",arr[1].op).text(label)}else{g.append("text").attr("x",x(100)+8).attr("y",arr[0].y).attr("dominant-baseline","middle").attr("fill",arr[0].color).attr("font-size","11px").attr("font-weight",arr[0].sw>2?"700":"400").attr("font-family",FF).attr("opacity",arr[0].op).text(label)}})},[data,data2,hs,ht,dims]);
+ML.forEach(ml=>{g.append("text").attr("x",x(ml)).attr("y",ih+16).attr("text-anchor","middle").attr("fill","#555").attr("font-size","11px").attr("font-family","'DM Mono',monospace").text(ml)});g.append("text").attr("x",iw/2).attr("y",ih+36).attr("text-anchor","middle").attr("fill","#555").attr("font-size","10px").attr("letter-spacing","1.5px").attr("font-family",FF).text("NUMBER OF REVIEWS");const TIER_MAP={5:"strong",4:"good",3:"average",2:"weak",1:"poor"};const TIERS=["strong","good","average","weak","poor"];const TIER_COLORS1={strong:"#C41200",good:"#D93D2B",average:"#E86858",weak:"#B85450",poor:"#8B4845"};const TIER_COLORS2={strong:"#0E7490",good:"#1594B0",average:"#2BB4CC",weak:"#1B8A9E",poor:"#1A6B7A"};const activeTier=hs?TIER_MAP[hs]:null;const line=d3.line().x(d=>x(d.m)).y(d=>y(d.avg)).curve(d3.curveMonotoneX);const labels={};const draw=(ds,cm)=>{TIERS.forEach(tier=>{const traj=ds.trajectories?.[tier]?.[ut];if(!traj)return;const pts=ML.filter(ml=>traj[ml]).map(ml=>({m:ml,avg:traj[ml].avg}));if(pts.length<2)return;const hi=activeTier===null||activeTier===tier;const op=hi?0.9:0.25;const sw=hi&&activeTier===tier?4:hi?2:1.5;g.append("path").datum(pts).attr("d",line).attr("fill","none").attr("stroke",cm[tier]).attr("stroke-width",sw).attr("opacity",op);if(hi)pts.forEach(p=>g.append("circle").attr("cx",x(p.m)).attr("cy",y(p.avg)).attr("r",activeTier===tier?4:3).attr("fill",cm[tier]).attr("opacity",op));const last=pts[pts.length-1];if(!labels[tier])labels[tier]=[];labels[tier].push({y:y(last.avg),color:cm[tier],op,sw})})};draw(data,TIER_COLORS1);if(data2)draw(data2,TIER_COLORS2);const TIER_LABELS={strong:"~4.5★",good:"~4.0★",average:"~3.6★",weak:"~3.1★",poor:"~2.5★"};Object.entries(labels).forEach(([tier,arr])=>{const label=TIER_LABELS[tier]||tier;if(arr.length===2){const midY=(arr[0].y+arr[1].y)/2;g.append("text").attr("x",x(100)+8).attr("y",midY-6).attr("dominant-baseline","auto").attr("fill",arr[0].color).attr("font-size","10px").attr("font-weight",arr[0].sw>2?"700":"400").attr("font-family",FF).attr("opacity",arr[0].op).text(label);g.append("text").attr("x",x(100)+28).attr("y",midY-6).attr("dominant-baseline","auto").attr("fill",arr[1].color).attr("font-size","10px").attr("font-weight",arr[1].sw>2?"700":"400").attr("font-family",FF).attr("opacity",arr[1].op).text(label)}else{g.append("text").attr("x",x(100)+8).attr("y",arr[0].y).attr("dominant-baseline","middle").attr("fill",arr[0].color).attr("font-size","11px").attr("font-weight",arr[0].sw>2?"700":"400").attr("font-family",FF).attr("opacity",arr[0].op).text(label)}})},[data,data2,hs,ht,dims]);
 return(<div ref={containerRef} style={{position:"relative",width:"100%"}}><svg ref={svgRef} width={dims.w} height={dims.h} style={{display:"block"}}/><div style={{display:"flex",flexDirection:"column",gap:6,marginTop:8,fontSize:12,color:"#555",fontFamily:FF}}><span style={{display:"flex",alignItems:"center",gap:8}}><span style={{width:18,height:3,borderRadius:2,background:C1,flexShrink:0,display:"inline-block"}}/><span>{label1}{bc1?<span style={{color:"#999",fontWeight:400}}> – {fmt(bc1)} restaurants</span>:null}</span></span>{data2&&label2&&<span style={{display:"flex",alignItems:"center",gap:8}}><span style={{width:18,height:3,borderRadius:2,background:C2,flexShrink:0,display:"inline-block"}}/><span>{label2}{bc2?<span style={{color:"#999",fontWeight:400}}> – {fmt(bc2)} restaurants</span>:null}</span></span>}</div></div>)}
 
 function WordCloud({data,hs,ht,accent=C1}){const star=hs?String(hs):"all",type=ht||"all";const mergeWords=(a,b)=>{const m={};[...( a||[]),...(b||[])].forEach(w=>{m[w.word]=(m[w.word]||0)+w.count});return Object.entries(m).map(([word,count])=>({word,count})).sort((a,b)=>b.count-a.count)};let words=[];if(star==="all"){const e5=data?.words?.['5']?.elite||[];const r5=data?.words?.['5']?.regular||[];const e4=data?.words?.['4']?.elite||[];const r4=data?.words?.['4']?.regular||[];words=mergeWords([...e5,...e4],[...r5,...r4]).slice(0,20);}else if(type==="all"){words=mergeWords(data?.words?.[star]?.elite,data?.words?.[star]?.regular).slice(0,20);}else if(data?.words?.[star]?.[type])words=data.words[star][type];else if(data?.words?.[star]?.regular)words=data.words[star].regular;
@@ -296,12 +296,20 @@ export default function App(){
   },[]);
 
   // Load city data when sel2 changes
+  // Load city data when sel1 or sel2 changes
   useEffect(()=>{
     if(!sel2||sel2==='national'||cityCache[sel2])return;
     fetch(`${import.meta.env.BASE_URL}data/cities/${sel2}.json`).then(r=>r.json()).then(d=>{
       setCityCache(prev=>({...prev,[sel2]:d}));
     }).catch(()=>{});
   },[sel2]);
+
+  useEffect(()=>{
+    if(!sel1||sel1==='national'||cityCache[sel1])return;
+    fetch(`${import.meta.env.BASE_URL}data/cities/${sel1}.json`).then(r=>r.json()).then(d=>{
+      setCityCache(prev=>({...prev,[sel1]:d}));
+    }).catch(()=>{});
+  },[sel1]);
     
   useEffect(()=>{
     if(!loaded)return;
@@ -314,23 +322,21 @@ export default function App(){
     try{if(window.posthog)window.posthog.capture('ab_group_assigned',{group:ab,auto_tour:ab==='A'&&newUser});}catch{}
   },[loaded]);
 
-  const data=natData;const isC=!!sel2&&sel2!=='national';const d2=isC?cityCache[sel2]||null:null;
+  const data=sel1==='national'?natData:cityCache[sel1]||natData;const isC=!!sel2&&sel2!=='national';const d2=isC?cityCache[sel2]||null:null;
 const l1=natData&&cityIndex?gCL(sel1,cityIndex):"";const l2=natData&&cityIndex&&sel2?gCL(sel2,cityIndex):"";const fl=gfl(hs,ht);
 const ai=useAIInsights(data,d2,l1,l2);
 if(!natData||!cityIndex)return(<div style={{display:'flex',alignItems:'center',justifyContent:'center',height:'100vh',fontFamily:FF,color:'#555'}}>Loading...</div>);
   // Trajectory key label: location + year context
-  const trajYear=yr==="All Time"?"2022":yr;
-  const trajKey1=l1+" restaurants plotted by their cumulative rating in "+trajYear;
-  const trajKey2=l2?l2+" restaurants plotted by their cumulative rating in "+trajYear:"";
+  const trajKey1=l1+" averaged restaurant ratings";
+  const trajKey2=l2?l2+" averaged restaurant ratings ":"";
 
   // Pre-compute tour step body (dynamic for step 3)
   const tourStepBody=(()=>{
     if(!tour.active||tour.tourStep<0)return"";
     const step=tour.tourStep;
     if(step===2){
-      const firstAvg=data.trajectories&&data.trajectories["1"]&&data.trajectories["1"].all&&data.trajectories["1"].all["1"]?data.trajectories["1"].all["1"].avg:null;
-      const avgStr=firstAvg!=null?firstAvg.toFixed(2)+"\u2605":"—";
-      return"Each line tracks how a restaurant\u2019s rating evolved over time, averaged across every restaurant with a cumulative rating of 1\u20135\u2605 in 2022. For example, of all the restaurants in "+l1+" with a 1\u2605 rating, their first review averaged across every 1\u2605 restaurant was "+avgStr+".";
+      const firstAvg=data.trajectories&&data.trajectories["poor"]&&data.trajectories["poor"].all&&data.trajectories["poor"].all["1"]?data.trajectories["poor"].all["1"].avg:null;      const avgStr=firstAvg!=null?firstAvg.toFixed(2)+"\u2605":"—";
+      return"Each line tracks the change in averaged restaurant ratings across 5 buckets of cumulative ratings (~4.5\u2605, ~4\u2605, etc). For all "+l1+" restaurants with a ~2.5\u2605 rating, this shows their first review on average was "+avgStr+".";
     }
     return TOUR_STEPS[step].body;
   })();
@@ -467,7 +473,7 @@ if(!natData||!cityIndex)return(<div style={{display:'flex',alignItems:'center',j
         </div>
         <div id="yd-tour-trajectory" className="yd-card" style={{border:"1px solid #e0e0e0",borderRadius:12,padding:"18px 20px",background:"#fafafa",flex:1,overflow:"hidden",minWidth:0}}>
           <h3 style={{fontSize:12,letterSpacing:2,color:C1,fontWeight:700,margin:"0 0 2px",fontFamily:FF}}>RESTAURANT RATING TRAJECTORY</h3>
-          <p style={{color:"#555",fontSize:14,margin:"0 0 8px"}}>After the first review, how a restaurant's rating changed on average – <strong style={{color:"#333"}}>{fl}</strong></p>
+          <p style={{color:"#555",fontSize:14,margin:"0 0 8px"}}>How restaurant ratings evolved over time – <strong style={{color:"#333"}}>{fl}</strong></p>
           <TrajectoryChart data={data} data2={d2} hs={hs} ht={ht} label1={trajKey1} label2={trajKey2} bc1={data.meta.business_count} bc2={d2?.meta?.business_count}/>
         </div>
       </div>
